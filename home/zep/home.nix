@@ -13,7 +13,7 @@
 
   programs.caelestia = {
     enable = true;
-    systemd.enable = false; # start manually while testing
+    systemd.enable = true; # start manually while testing
     cli.enable = true;
 
     settings = {
