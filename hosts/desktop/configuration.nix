@@ -12,18 +12,15 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
-    systemd-boot.enable = false;
-
+    systemd-boot.enable = lib.mkForce false;
     efi.canTouchEfiVariables = true;
-
-    grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = true;
-    };
   };
 
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
+  
   networking.hostName = "nixos-btw"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
@@ -34,6 +31,10 @@
 
   # Hyprland
   programs.hyprland.enable = true;
+
+  # zsh
+  programs.zsh.enable = true;
+  users.users.zep.shell = pkgs.zsh;
 
   # SDDM
   services.displayManager.sddm = {
@@ -127,6 +128,7 @@
    ripgrep
    btop
    waybar
+   sbctl
  ];
 
   # Some programs need SUID wrappers, can be configured further or are

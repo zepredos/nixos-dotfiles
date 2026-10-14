@@ -22,8 +22,35 @@
     };
   };
 
+  programs.zsh.enable = true;
+
+  programs.atuin = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.starship = {
+  enable = true;
+  enableZshIntegration = true;
+
+  settings = {
+    username = {
+      show_always = true;
+      format = "[$user]($style)@";
+    };
+
+    hostname = {
+      ssh_only = false;
+      format = "[$hostname]($style) ";
+    };
+  };
+};  
+  fonts.fontconfig.enable = true;
+
   xdg.configFile."hypr/hyprland.lua".source = ./hypr/hyprland.lua;
+  xdg.configFile."ghostty/config".source = ./ghostty/config;
 
   home.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono    
   ];
 }

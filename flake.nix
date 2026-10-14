@@ -3,6 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.2.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    }; 
 
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
@@ -15,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, lanzaboote, ... }@inputs: {
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -23,6 +28,7 @@
         ./hosts/desktop/configuration.nix
 
 	home-manager.nixosModules.home-manager
+	lanzaboote.nixosModules.lanzaboote
 
 	{
 	  home-manager.extraSpecialArgs = { inherit inputs; };
