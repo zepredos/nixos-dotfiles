@@ -13,7 +13,7 @@
 
   programs.caelestia = {
     enable = true;
-    systemd.enable = true; # start manually while testing
+    systemd.enable = true;
     cli.enable = true;
 
     settings = {
@@ -68,5 +68,17 @@
 
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono    
+    # Rust
+    rustc
+    cargo
+    rustfmt
+    clippy
+
+    # C/C++
+    gcc
+
+    # Python
+    python3
+    uv
   ];
 }
