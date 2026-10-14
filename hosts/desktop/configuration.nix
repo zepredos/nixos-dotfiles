@@ -43,8 +43,11 @@
     wayland.compositor = "kwin";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  # makes flakes system wide
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # allows proprietary packages
+  nixpkgs.config.allowUnfree = true; 
 
   hardware.graphics = {
     enable = true;
