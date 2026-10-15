@@ -14,9 +14,12 @@
 
   programs.caelestia = {
     enable = true;
-    systemd.enable = true;
+    systemd = {
+      enable = true;
+      target = "graphical-session.target";
+    };
     cli.enable = true;
-
+    
     settings = {
       bar.clock.showDate = true;
       paths.wallpaperDir = "~/Pictures/Wallpapers";
@@ -58,6 +61,7 @@
 
   services.hyprsunset = {
     enable = true;
+    systemdTarget = "graphical-session.target";
 
     settings.profile = [
       {

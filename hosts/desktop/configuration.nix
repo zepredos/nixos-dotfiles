@@ -30,7 +30,10 @@
   time.timeZone = "Asia/Kolkata";
 
   # Hyprland
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
 
   # zsh
   programs.zsh.enable = true;
