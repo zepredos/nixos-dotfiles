@@ -8,6 +8,7 @@
   home.username = "zep";
   home.homeDirectory = "/home/zep";
   home.stateVersion = "25.05";
+  home.sessionPath = [ "$HOME/.cargo/bin" ];
 
   programs.home-manager.enable = true;
 
@@ -22,7 +23,12 @@
     };
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    initContent = ''
+      export PATH="$HOME/.cargo/bin:$PATH"
+    '';
+  };
 
   programs.atuin = {
     enable = true;
@@ -46,6 +52,10 @@
   };
 };
   
+  programs.pi-coding-agent = {
+    enable = true;
+};
+
   services.hyprsunset = {
     enable = true;
 
