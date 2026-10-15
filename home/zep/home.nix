@@ -75,7 +75,10 @@
 
   xdg.configFile."hypr/hyprland.lua".source = ./hypr/hyprland.lua;
   xdg.configFile."ghostty/config".source = ./ghostty/config;
-
+  xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
+  xdg.configFile."nvim/lua".source = ./nvim/lua;
+  xdg.configFile."nvim/doc".source = ./nvim/doc;
+  
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono    
     # Rust
@@ -90,5 +93,11 @@
     # Python
     python3
     uv
+
+    # kickstarter.nvim
+    gnumake
+    tree-sitter
+    unzip
+    wl-clipboard
   ];
 }
